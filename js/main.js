@@ -14,7 +14,7 @@ var svg = d3.select("#home").append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "/js/us-10m.json")
+    .defer(d3.json, "/imi-county-map/js/us-10m.json")
     //.defer(d3.json, "/js/ne_10m_us_states_lakes.json")
     .defer(d3.json, "http://rocky-plateau-7183.herokuapp.com/1/demand?group_by=county&geo=US&products=1%2C2%2C3%2C4")
     //.defer(d3.json, "http://0.0.0.0:5000/1/demand?group_by=county&geo=US&products=1%2C2%2C3%2C4")
