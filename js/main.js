@@ -16,8 +16,8 @@ var svg = d3.select("#home").append("svg")
 queue()
     .defer(d3.json, "/js/us-10m.json")
     //.defer(d3.json, "/js/ne_10m_us_states_lakes.json")
-    //.defer(d3.json, "http://rocky-plateau-7183.herokuapp.com/1/demand?group_by=state&geo=US&products=1%2C2%2C3%2C4")
-    .defer(d3.json, "http://0.0.0.0:5000/1/demand?group_by=county&geo=US&products=1%2C2%2C3%2C4")
+    .defer(d3.json, "http://rocky-plateau-7183.herokuapp.com/1/demand?group_by=county&geo=US&products=1%2C2%2C3%2C4")
+    //.defer(d3.json, "http://0.0.0.0:5000/1/demand?group_by=county&geo=US&products=1%2C2%2C3%2C4")
     .await(ready);
 
 function ready(error, us, demand) {
@@ -30,8 +30,6 @@ function ready(error, us, demand) {
     domain.push( demand.results[_i][DEMAND] );
     results.set(demand.results[_i][ABBREV],demand.results[_i][DEMAND]);
   }
-
-  console.log(results);
 
   var quantize = d3.scale.quantize()
     .domain([domain[0],domain[domain.length-1]])
